@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="theme-color" content="#3f563d">
+  <meta name="description" content="A cozy farming adventure about growing squash, making impossible machines, and finding your place in a very particular little town.">
+  <title>Bumpkin Town · A rather peculiar farming adventure</title>
+  <link rel="icon" href="./assets/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+  <main id="game" aria-label="Bumpkin Town farming game">
+    <canvas id="world" tabindex="0" aria-label="Your farm. Tap to walk or use a tool. Arrow keys to walk; E to interact."></canvas>
+    <header class="topbar">
+      <button class="brand" id="about" aria-label="Open almanac and help"><span class="brand-mark">✿</span><span>Bumpkin<span class="brand-town">TOWN</span></span></button>
+      <div class="clock-patch"><span id="weather">☀</span><div><strong id="day">Day 1 · Sunday</strong><small id="time">8:00 AM · Early summer</small></div></div>
+      <div class="top-actions"><button id="coins" class="coin-patch" aria-label="Open your inventory"><span>◉</span> <b>80</b></button><button id="settings" class="round-button" aria-label="Settings">⚙</button></div>
+    </header>
+    <nav class="places" aria-label="Travel"><button data-place="farm" class="active"><span>⌂</span> Farm</button><button data-place="town"><span>⚑</span> Town</button><button data-place="cellar"><span>⚒</span> Basement</button></nav>
+    <aside class="quest-patch" id="quest"><button id="quest-open"><span class="eyebrow" id="chapter-label">CHAPTER ONE · ROOTS & ROUTINES</span><strong id="quest-title">A little room to grow</strong><span id="quest-text">Clear some brambles. There’s a farm in here somewhere.</span><span class="quest-bottom"><span id="quest-progress">0 / 3 patches cleared</span><span>↗</span></span></button></aside>
+    <div class="location-label"><span id="location-title">The old Wren farm</span><small id="location-subtitle">Yours, mud and all.</small></div>
+    <div id="toast" role="status" aria-live="polite"></div>
+    <div id="world-hint">Tap a patch to work. Drag to look around.</div>
+    <button id="recenter" class="round-button" aria-label="Center camera on farmer">⌖</button>
+    <button id="mobile-journal" class="round-button" aria-label="Open almanac">▥</button>
+    <footer class="bottom-ui">
+      <div class="energy-line"><span>✦ <b id="energy">100</b> / 100</span><span id="save-status">Saved on this device</span></div>
+      <nav class="toolbelt" aria-label="Farm tools">
+        <button data-tool="hand" class="selected" aria-label="Walk and interact"><span>☞</span><small>Explore</small><kbd>1</kbd></button>
+        <button data-tool="clear" aria-label="Clear trees, rocks and brambles"><span>⚒</span><small>Clear</small><kbd>2</kbd></button>
+        <button data-tool="hoe" aria-label="Till soil"><span>⛏</span><small>Till</small><kbd>3</kbd></button>
+        <button data-tool="seed" aria-label="Plant seeds"><span>❧</span><small id="seed-label">Plant</small><kbd>4</kbd></button>
+        <button data-tool="water" aria-label="Water crops"><span>♧</span><small>Water</small><kbd>5</kbd></button>
+        <button data-tool="harvest" aria-label="Harvest crops"><span>♜</span><small>Harvest</small><kbd>6</kbd></button>
+        <i></i><button id="bag" aria-label="Open bag"><span>▤</span><small>Bag</small><kbd>B</kbd></button><button id="journal" aria-label="Open almanac"><span>▥</span><small>Almanac</small><kbd>J</kbd></button>
+      </nav>
+    </footer>
+    <dialog id="panel"><div id="panel-content"></div></dialog>
+    <div id="loading"><span>✿</span><strong>Unfolding Bumpkin Town…</strong><small>Finding your boots.</small></div>
+  </main>
+  <script type="module" src="./src/game.js"></script>
+</body>
+</html>
